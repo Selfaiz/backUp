@@ -60,6 +60,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <!--==================== LOGOS ====================-->
@@ -84,9 +85,9 @@
     <section class="popular section " id="popular">
         <div class="container">
             <div class="popular__titles">
-                <spam class="section__subtitle">
+                <span class="section__subtitle">
                     Our Categories
-                </spam>
+                </span>
                 <h2 class="section__title">
                     Popular Metier
                 </h2>
@@ -358,38 +359,7 @@
                             Chat Now
                         </button>
                     </div>
-
-                    <div class="contact__card-box">
-                        <div class="contact__card-info">
-                            <i class="bx bxs-video"></i>
-                            <div>
-                                <h3 class="contact__card-title">
-                                    Video Call
-                                </h3>
-                                <p class="contact__card-description">
-                                    022.321.165.19                                        </p>
-                            </div>
-                        </div>
-                        <button class="button contact__card-button">
-                            Video Call Now
-                        </button>
-                    </div>
-
-                    <div class="contact__card-box">
-                        <div class="contact__card-info">
-                            <i class="bx bxs-envelope"></i>
-                            <div>
-                                <h3 class="contact__card-title">
-                                   Send Mail
-                                </h3>
-                                <p class="contact__card-description">
-                                    Maalamlik@info.com                                  </p>
-                            </div>
-                        </div>
-                        <button class="button contact__card-button">
-                            Send Mail
-                        </button>
-                    </div>
+ 
                 </div>
             </div>
         </div>
@@ -407,6 +377,6 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script defer src="assets/js/script.js"></script>
 
 @endsection

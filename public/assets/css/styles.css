@@ -672,9 +672,12 @@ transition: .3s;
 }
 .contact__card-info{
   display: flex;
-  align-items: flex-start;
-  column-gap: .75rem;
+  align-items: flex-end;
+  column-gap: 0.75rem;
   margin-bottom: 1.25rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact__card i{
