@@ -82,6 +82,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: var(--text-color);
 }
 
 img {
@@ -193,6 +194,10 @@ border: 3px solid var(--border-color);
   padding: 4.5rem 0 2rem;
 }
 
+.white{
+  color: #fff;
+}
+
 .section__title {
   font-size: var(--h2-font-size);
   margin-bottom: 1rem;
@@ -207,7 +212,14 @@ border: 3px solid var(--border-color);
   font-size: var(--small-font-size);
   color: var(--second-color);
 }
+.section__subtitle__All { 
+  color: royalblue;
+  
+}
 
+.section__subtitle__All:hover { 
+  text-decoration: underline;
+}
 .main {
   overflow: hidden; /* For the animations ScrollReveal*/
 }
@@ -318,6 +330,7 @@ border: 3px solid var(--border-color);
 
 /*=============== HOME ===============*/
 .home{
+  min-height: 100vh;
   background: linear-gradient(170deg, hsla(0,0%,22%) 0% , hsla(0 , 0% ,6%) 30%);
   padding-bottom: 0;
 }
@@ -450,7 +463,12 @@ transition: .3s;
 /*=============== POPULAR ===============*/
 .popular__container{
   padding: 1rem 0 5rem  !important;  /*.5rem 1.5rem*/
-  
+}
+.popular__flex{ 
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0;
 }
 .popular__card{
   width: 290px !important;  /*7aydha assi*/
@@ -491,8 +509,11 @@ transition: .3s;
   font-size: var(--small-font-size);
 
 }
-.popular__card:hover{
+.popular__card{
   box-shadow: 0 12px 16px hsl(228 , 66% , 45% , .1);
+}
+.dark-mode .popular__card{
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
 }
 /* Swiper class */
 .swiper-button-prev::after,
@@ -1006,6 +1027,9 @@ row-gap: 2.5rem;
   }
   .section__title{
     font-size: 2.25rem;
+  }
+  .popular__flex{
+    justify-content: center;
   }
   .secction__subtitle{
     font-size: var(--normal-font-size);

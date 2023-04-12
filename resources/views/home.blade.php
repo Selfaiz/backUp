@@ -22,21 +22,29 @@
                 </p>
                 <form action="/gogle" method="post" class="home__search">
                     <i class="bx bxs-map"></i>
-                    <input type="search" name="search" id="search" placeholder="Search by location...." class="home__search-input">
+                    {{-- <input type="search" name="search" id="search" placeholder="Search by location...." class="home__search-input"> --}}
+                    <input type="text" id="" list="list" placeholder="Search by location...." class="home__search-input">
+                        <datalist id="list">
+                            @foreach ($data['categories'] as $categorie)
+                                <option value="{{$categorie->nom_categorie}}">
+                            @endforeach
+                        </datalist>
                     <button class="button"> Search</button> 
+                    
                 </form>
+                
                 <div class="home__value">
                     <div>
                         <h1 class="home__value-number">
                             9K <span>+</span>
                         </h1>
                         <span class="home__value-description">
-                            Premium <br> Product
+                            Order <br> Complet
                         </span>
                     </div>
                     <div>
                         <h1 class="home__value-number">
-                            2K <span>+</span>
+                            {{$data['clientCount']}} <span>+</span>
                         </h1>
                         <span class="home__value-description">
                             Happy <br> Customer
@@ -44,10 +52,10 @@
                     </div>
                     <div>
                         <h1 class="home__value-number">
-                            28K <span>+</span>
+                            {{$data['ouvrierCount']}} <span>+</span>
                         </h1>
                         <span class="home__value-description">
-                            Awards <br> Winning
+                            Active <br> Ouvrier
                         </span>
                     </div>
                 </div>
@@ -91,89 +99,15 @@
                 <h2 class="section__title">
                     Popular Metier
                 </h2>
+                <a href="{{route('categories')}}" class="section__subtitle__All">
+                    All Categories
+                </a>
             </div>
             <div class="popular__container swiper">
-                <div class="popular__flex swiper-wrapper">
-                    <article class="popular__card swiper-slide">
-                        <img src="assets/img/popular1.jpg" alt="" class="popular__img">
-                        <div class="popular__data">
-                            <h2 class="popular__price">
-                                <span>$</span>66,356
-                            </h2>
-                            <h3 class="popular__title">
-                                Garden City Assat
-                            </h3>
-                            <p class="popular__description">                               
-                                Street The Garden City Of Miraflores, 
-                                Lima - Perú Av. Sol #9876
-                            </p>
-                        </div>
-                    </article>
-                    <article class="popular__card swiper-slide">
-                        <img src="assets/img/popular3.jpg" alt="" class="popular__img">
-                        
-                        <div class="popular__data">
-                            <h2 class="popular__price">
-                                <span>$</span>66,356
-                            </h2>
-                            <h3 class="popular__title">
-                                Garden City Assat
-                            </h3>
-                            <p class="popular__description">                               
-                                Street The Garden City Of Miraflores, 
-                                Lima - Perú Av. Sol #9876
-                            </p>
-                        </div>
-                    </article>
-                    <article class="popular__card swiper-slide">
-                        <img src="assets/img/popular2.jpg" alt="" class="popular__img">
-                        
-                        <div class="popular__data">
-                            <h2 class="popular__price">
-                                <span>$</span>66,356
-                            </h2>
-                            <h3 class="popular__title">
-                                Garden City Assat
-                            </h3>
-                            <p class="popular__description">                               
-                                Street The Garden City Of Miraflores, 
-                                Lima - Perú Av. Sol #9876
-                            </p>
-                        </div>
-                    </article>
-                    <article class="popular__card swiper-slide">
-                        <img src="assets/img/popular4.jpg" alt="" class="popular__img">
-                        
-                        <div class="popular__data">
-                            <h2 class="popular__price">
-                                <span>$</span>66,356
-                            </h2>
-                            <h3 class="popular__title">
-                                Garden City Assat
-                            </h3>
-                            <p class="popular__description">                               
-                                Street The Garden City Of Miraflores, 
-                                Lima - Perú Av. Sol #9876
-                            </p>
-                        </div>
-                    </article>
-                    <article class="popular__card swiper-slide">
-                        <img src="assets/img/popular5.jpg" alt="" class="popular__img">
-                        
-                        <div class="popular__data">
-                            <h2 class="popular__price">
-                                <span>$</span>66,356
-                            </h2>
-                            <h3 class="popular__title">
-                                Garden City Assat
-                            </h3>
-                            <p class="popular__description">                               
-                                Street The Garden City Of Miraflores, 
-                                Lima - Perú Av. Sol #9876
-                            </p>
-                        </div>
-
-                    </article>
+                <div class=" swiper-wrapper"> 
+                    @foreach ($data['categories'] as $categorie)
+                        <x-article-categorie :categorie="$categorie"/>
+                    @endforeach
                 </div>
 
                 <div class="swiper-button-next">

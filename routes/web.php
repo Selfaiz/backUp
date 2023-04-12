@@ -1,16 +1,69 @@
 <?php
-
+ 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OuvrierController;
+use App\Http\Controllers\CategorieController;
 
+ 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+|--------------|
+| Home Routes  |
+|--------------|
 */
 
-Route::view('/', 'home');
+Route::get('/', [HomeController::class,'index']);
+
+/*
+|-------------------|
+| Categorie Routes  |
+|-------------------| 
+*/
+ 
+Route::prefix('categories')->controller(CategorieController::class)->group(function () {
+    Route::get('/', 'index')->name('categories'); 
+    Route::get('/{Categorie}', 'ouvrier')->name('categories.ouvrier'); 
+});
+
+/*
+|----------------|
+| Ouvier Routes  |
+|----------------| 
+*/
+
+  // code..
+/*
+|--------------|
+| Auth Routes  |
+|--------------|
+*/
+ 
+//code..
+
+
+/*
+|--------------|
+| Chat Routes  |
+|--------------| 
+*/
+ 
+//code..
+
+/*
+|----------------|
+| client Routes  |
+|----------------| 
+*/
+
+//code..
+ 
+/*
+|-------------------|
+| Dashboard Routes  |
+|-------------------|
+*/
+
+//code..
+
+
+
