@@ -32,11 +32,13 @@ Route::prefix('categories')->controller(CategorieController::class)->group(funct
 |-----------------| 
 */
 
-Route::prefix('demande')->name('demande.')->controller(DemandeController::class)->group(function () {
-  Route::get('/create', 'create')->name('create');   
-});
+// Route::prefix('demande')->controller(DemandeController::class)->group(function () {
+//   Route::get('/', 'index')->name('index');
+//   Route::get('/create', 'create')->name('create');
+//   Route::post('demande', 'store')->name('store');   
+// });
   
-
+Route::resource('demandes', DemandeController::class);
   /*
 |----------------|
 | Ouvier Routes  |

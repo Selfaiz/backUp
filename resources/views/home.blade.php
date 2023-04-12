@@ -102,6 +102,9 @@
                 <a href="{{route('categories')}}" class="section__subtitle__All">
                     All Categories
                 </a>
+                <a href="{{route('demandes.create')}}" class="section__subtitle__All">
+                    Make Demande
+                </a>
             </div>
             <div class="popular__container swiper">
                 <div class=" swiper-wrapper"> 
@@ -270,7 +273,8 @@
                                     Call
                                 </h3>
                                 <p class="contact__card-description">
-                                    022.321.165.19                                        </p>
+                                    06 12 <span> NMRTI Makat3tach </span>    
+                                </p>
                             </div>
                         </div>
                         <button class="button contact__card-button">
@@ -286,7 +290,7 @@
                                     Chat 
                                 </h3>
                                 <p class="contact__card-description">
-                                    022.321.165.19                                       </p>
+                                    Support@Maalam-lik.ma                                       </p>
                             </div>
                         </div>
                         <button class="button contact__card-button">
