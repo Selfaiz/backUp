@@ -2,6 +2,7 @@
  
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\OuvrierController;
 use App\Http\Controllers\CategorieController;
 
@@ -26,12 +27,24 @@ Route::prefix('categories')->controller(CategorieController::class)->group(funct
 });
 
 /*
+|-----------------|
+| Demande Routes  |
+|-----------------| 
+*/
+
+Route::prefix('demande')->name('demande.')->controller(DemandeController::class)->group(function () {
+  Route::get('/create', 'create')->name('create');   
+});
+  
+
+  /*
 |----------------|
 | Ouvier Routes  |
 |----------------| 
 */
 
   // code..
+  
 /*
 |--------------|
 | Auth Routes  |
