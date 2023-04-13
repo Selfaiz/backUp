@@ -4,6 +4,7 @@
             Maalam Lik <!-- Logo here -->
         </a>
 
+        @isset($aa)
         <div class="nav__menu"  id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item">
@@ -44,11 +45,12 @@
                 </li>
             </ul>
         </div>
-
         <!-- dark mode  -->
         <i class="bx bx-moon dark-mode" id="switch-button"></i>
-        <a href="login" class="button nav__button">
+        @endisset
+        <a href="{{ route('login.index') }}" class="button nav__button">
             Login
         </a>
+
     </nav>
 </header>

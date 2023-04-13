@@ -3,9 +3,6 @@
 @section('style')
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
 @endsection
 @section('content')
 <main class="main">

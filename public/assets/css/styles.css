@@ -276,8 +276,8 @@ border: 3px solid var(--border-color);
   color: var(--first-color);
 
 }
-@media screen and (max-width: 1023px){
-  .nav__menu{
+/* @media screen and (max-width: 1023px){
+  .nav__menu {
     position: fixed;
     bottom: 2rem;
     background-color: var(--container-color);
@@ -285,7 +285,7 @@ border: 3px solid var(--border-color);
     width: 90%;
     left: 0;
     right: 0;
-    margin: 0 auto; /* auto */
+    margin: 0 auto;
     padding: 1.30rem 3rem ;
     border-radius: 1.25rem;
     transition: .4s;
@@ -302,13 +302,12 @@ border: 3px solid var(--border-color);
     border-radius: 50%;
   }
 .nav__link i{
-  font-size: 1.25rem; /* logo size*/
+  font-size: 1.25rem;
 }
 .nav__link span{
   display: none;
 }
-
-}
+} */
 
 /* Change background header */
 .scroll-header{
@@ -738,10 +737,6 @@ transition: .3s;
   box-shadow: 0 8px 24px hsla(228 , 66% , 45% , .1);
 
 }
-
-
-
-
 /*=============== SUBSCRIBE ===============*/
 .subscribe{
   padding: 2.5rem;
@@ -1291,4 +1286,3 @@ overflow: hidden;
 .cover {
   background-color: #000;
 }
- 

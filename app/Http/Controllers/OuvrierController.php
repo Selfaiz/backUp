@@ -9,23 +9,26 @@ use Illuminate\Http\Request;
 class OuvrierController extends Controller
 {
 
-   public function index(  $categorie)
-   { 
-      $ouvriers=Categorie::findOrFail($categorie)->ouvriers; 
-      return view('ouvrier.index',compact('ouvriers'));;
+   public function index($categorie)
+   {
+      $ouvriers = Categorie::findOrFail($categorie)->ouvriers;
+      return view('ouvrier.index', compact('ouvriers'));;
    }
 
    public function profile(Ouvrier $ouvrier)
    {
-      return view('ouvrier.profile',compact('ouvrier'));
+      return view('ouvrier.profile', compact('ouvrier'));
    }
    public function edit(Ouvrier $ouvrier)
-     {
-      if(auth()->id==$ouvrier->id){
+   {
+      if (auth()->id == $ouvrier->id) {
          dd($ouvrier);
-      }else{
+      } else {
          abort(404);
       }
-        
-     }
+   }
+   public function register()
+   {
+      return view('ouvrier.register');
+   }
 }
