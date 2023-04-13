@@ -20,10 +20,11 @@
                     Find a variety of properties that suit you very easily, 
                     forget all difficulties in finding a residence for you
                 </p>
-                <form action="/gogle" method="post" class="home__search">
+                <form action="{{route('categories.search')}}" method="post" class="home__search">
+                    @csrf
                     <i class="bx bxs-map"></i>
                     {{-- <input type="search" name="search" id="search" placeholder="Search by location...." class="home__search-input"> --}}
-                    <input type="text" id="" list="list" placeholder="Search by location...." class="home__search-input">
+                    <input type="text" name="search" list="list" placeholder="Search by location...." class="home__search-input">
                         <datalist id="list">
                             @foreach ($data['categories'] as $categorie)
                                 <option value="{{$categorie->nom_categorie}}">
@@ -36,7 +37,7 @@
                 <div class="home__value">
                     <div>
                         <h1 class="home__value-number">
-                            9K <span>+</span>
+                            {{$data['orederCount']}} <span>+</span>
                         </h1>
                         <span class="home__value-description">
                             Order <br> Complet

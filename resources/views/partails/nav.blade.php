@@ -4,7 +4,7 @@
             Maalam Lik <!-- Logo here -->
         </a>
 
-        <div class="nav__menu"  id="nav-menu">
+        {{-- <div class="nav__menu"  id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item">
                     <a href="{{Route::current()->getName()?'/':'#home'}}" class="nav__link active-link">
@@ -43,12 +43,16 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
 
         <!-- dark mode  -->
-        <i class="bx bx-moon dark-mode" id="switch-button"></i>
-        <a href="login" class="button nav__button">
-            Login
-        </a>
+        <div>
+            <i class="bx bx-moon dark-mode" id="switch-button"></i>
+            @guest
+            <a href="login" class="button nav__button">
+                Login
+            </a>
+            @endguest
+        </div>
     </nav>
 </header>
