@@ -24,6 +24,7 @@ Route::get('/', [HomeController::class,'index']);
  
 Route::prefix('categories')->controller(CategorieController::class)->group(function () {
     Route::get('/', 'index')->name('categories'); 
+    Route::post('/search', 'search')->name('categories.search'); 
 });
 
 /*

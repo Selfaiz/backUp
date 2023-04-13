@@ -13,5 +13,15 @@ class CategorieController extends Controller
         $categories=Categorie::all(); 
         return view('categorie.index',compact('categories'));
     }
+    public function search(Request $request)
+    { 
+        $categories=Categorie::where('nom_categorie', $request->search)->get()->first() ;  
+        if($categories){
+            $ouvries=$categories->ouvriers;
+            return redirect()->route('categorie.ouvrier',$categories->id) ;
+        }
+        return redirect('/');
+    }
+    
  
 }
