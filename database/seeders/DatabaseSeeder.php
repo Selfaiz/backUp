@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-
+        
         // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
+            
         Categorie::factory()->create([
             'nom_categorie' => 'Evrything About Benay',
             'info_categorie' => ' Street The Garden City Of Miraflores, 
@@ -52,5 +52,7 @@ class DatabaseSeeder extends Seeder
                                 Lima - Perú Av. Sol #9876',
             'image_url' => 'popular5.jpg',
         ]);
+        \App\Models\Ouvrier::factory(5)->create();
     }
+
 }

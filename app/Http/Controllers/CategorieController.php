@@ -13,11 +13,5 @@ class CategorieController extends Controller
         $categories=Categorie::all(); 
         return view('categorie.index',compact('categories'));
     }
-
-    public function ouvrier($categorie)
-    {
-        $categorie=Categorie::findOrFail($categorie)->ouvriers;
-        
-        return view('ouvrier.index',compact('categorie'));;
-    }
+ 
 }

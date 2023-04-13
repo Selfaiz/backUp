@@ -23,7 +23,6 @@ Route::get('/', [HomeController::class,'index']);
  
 Route::prefix('categories')->controller(CategorieController::class)->group(function () {
     Route::get('/', 'index')->name('categories'); 
-    Route::get('/{Categorie}', 'ouvrier')->name('categories.ouvrier'); 
 });
 
 /*
@@ -43,7 +42,11 @@ Route::prefix('demande')->name('demande.')->controller(DemandeController::class)
 |----------------| 
 */
 
-  // code..
+Route::controller(OuvrierController::class)->group(function () {
+  Route::get('/{ouvrier}', 'profile')->name('ouvrier.profile');  
+  Route::get('/categorie/{ouvrier}', 'index')->name('categorie.ouvrier');  
+  Route::get('/{ouvrier}/edit', 'edit')->name('ouvrier.edit');  
+});
   
 /*
 |--------------|

@@ -15,7 +15,7 @@ class Categorie extends Model
         'id'
     ];
 
-    public function ouviers(): HasMany
+    public function ouvriers(): HasMany
     {
         return $this->hasMany(Ouvrier::class);
     }

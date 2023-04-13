@@ -1,5 +1,5 @@
  
-<a href="{{route('categories.ouvrier',$categorie->id)}}" class="popular__card swiper-slide">
+<a href="{{route('categorie.ouvrier',$categorie->id)}}" class="popular__card swiper-slide">
     <img src="assets/img/categories/{{$categorie->image_url}}" alt="" class="popular__img">
     <div class="popular__data">
         {{-- <h2 class="popular__price">
