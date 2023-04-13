@@ -27,7 +27,7 @@
                             </div>
                             <div class="input-hidden-password">
                                 <i class="uil uil-eye eye"></i>
-                                <input type="password" id="Password" name="password" placeholder="Enter 6 characters or more" required />
+                                <input type="password" id="password_register" name="password" placeholder="Enter 6 characters or more" required />
                             </div>
                         </div>
                         <div class="btn login">
@@ -47,5 +47,6 @@
         </div>
     </section>
 @endsection
-</body>
-</html>
+@section('script')
+    <script defer src="{{ asset('assets/js/login.js') }}"></script>
+@endsection

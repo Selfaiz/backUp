@@ -22,6 +22,4 @@ class CategorieController extends Controller
         }
         return redirect('/');
     }
-    
- 
 }

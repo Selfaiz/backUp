@@ -6,6 +6,7 @@
 @endsection
 @section('content')
 <section class="ouvrier-register">
+    <img src="{{ asset('assets/img/auth/background.jpg') }}" alt="background" />
     <div class="register-container">
         <div class="register-header">
             <header>worker register</header>
@@ -199,6 +200,6 @@
     </div>
 </section>
     @endsection
-    @section('script')
-        <script defer src="{{ asset('assets/js/main.js') }}"></script>
-    @endsection
+@section('script')
+    <script defer src="{{ asset('assets/js/main.js') }}"></script>
+@endsection

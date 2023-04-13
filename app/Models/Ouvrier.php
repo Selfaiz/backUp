@@ -15,9 +15,7 @@ class Ouvrier extends Model
 {
     use HasFactory;
 
-    protected $guard = [
-        'id'
-    ];
+    protected $guard = [];
 
     public function fileOuvrier(): HasOne
     {

@@ -1,5 +1,3 @@
-
-
 /*===============Ouvrier Register===============*/
 const form = document.querySelector('form'),
         nextBtn = document.querySelector('.nextBtn'),
@@ -7,6 +5,7 @@ const form = document.querySelector('form'),
         allInput = document.querySelectorAll('.first input'),
         profileImageBtn = document.querySelector('.edit-profile'),
         input_file = document.querySelector('input[name="profile_image"]'),
+        input_date = document.querySelector('input[type="date"]'),
         avatar = document.querySelector('.avatar-image');
 
 
@@ -24,7 +23,7 @@ backBtn.addEventListener('click',() => form.classList.remove('secActive'))
 
 profileImageBtn.addEventListener('click',() => input_file.click())
 
-
+// add img from <input type="file"> to <img>
 const inputElement = document.querySelector('input[type="file"]');
 const imgElement = document.querySelector('img');
 

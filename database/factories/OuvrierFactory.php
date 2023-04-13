@@ -26,6 +26,7 @@ class ouvrierFactory extends Factory
             'cin' =>Str::random(5),
             'bio' => fake()->sentence($nbWords = 6, $variableNbWords = true) ,
             'phone' => fake()->e164PhoneNumber(),
+            'experience' => fake()->randomElement(['good','bad','normal']),
             'active' =>1,
             'password' =>'3rtweter4',
             'categorie_id' =>1,
