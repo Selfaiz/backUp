@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('image_url')->nullable();
             $table->string('image_url2')->nullable();
-            $table->foreignId('demande_id')->constrained('demandes'); 
+            $table->foreignId('demande_id')->constrained('demandes')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

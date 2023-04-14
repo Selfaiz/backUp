@@ -2,20 +2,9 @@
 @section('title','MAALAM LIK | Demande ')
 @section('style') 
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
-    
-
-
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
-
-    {{-- <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}"> --}}
-
-    {{-- <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}"> --}}
-
     <link rel="stylesheet" href="{{asset('assets/css/styleDASH.css')}}">
 @endsection
 @section('content')
@@ -37,7 +26,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
         @endif
-        <form method="POST" action="{{route('demandes.store')}}">
+        {{-- Alert D'ajoute --}}
+        @if (session('Ajouter_Demande'))
+        <div class="alert alert-sucess alert-dismissible fade show   card" role="alert">
+            <ul>
+                <li>{{sesion('Ajouter_Demande')}}</li>
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        {{-- Alert D'ajoute --}}
+        @if (session('Error_create-demande'))
+        <div class="alert alert-warning alert-dismissible fade show   card" role="alert">
+            <ul>
+                <li>{{sesion('Error_create-demande')}}</li>
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        {{-- Fin Alert D'ajoute --}}
+
+        <form method="POST" action="{{route('demandes.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="card">
                 <div class="card-body">
@@ -126,9 +136,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Description <span class="Obligatoire">*</span></label>
-                                <textarea class="form-control"  placeholder="Donner une description de vous besoins" name="Description">
-                                    {{old('Description')}}
-                                </textarea>
+                                <textarea class="form-control"  placeholder="Donner une description de vous besoins" name="Description">{{old('Description')}}</textarea>
                                 @error('Description')
                                     <p style="color: red">
                                         {{$message}} 

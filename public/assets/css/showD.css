@@ -1,0 +1,131 @@
+
+
+.container_card{
+    display:flex;
+    justify-content: space-evenly;
+  }
+  .card {
+     display: flex;
+     position: relative;
+     max-width: 666px;
+     background: var(--body-color);
+     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+     padding: 6px 12px;
+     border-radius: 25px;
+     transition: all .3s;
+  }
+  
+  .image-container {
+    width: 290px;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 270px;
+    padding:5px 5px; 
+    border-radius:32px;
+    height: 200px;
+    transform:tran
+  }
+  
+  .content {
+  /*   padding: 20px; */
+    width: 50%;
+  }
+  
+  .title {
+    text-align:center;
+    color: var(--first-color-alt);
+    font-size: 24px;
+    margin: 0;
+  }
+  .data_con{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 13px 10px;
+  }
+  .address {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .address i {
+    color: #ccc;
+    margin-right: 5px;
+  }
+  
+  .address p {
+    margin: 0;
+  }
+  
+  .date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    margin-bottom: 2px;
+  }
+  
+  .description p {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .btn-center{
+    text-align: center;
+  }
+  .show-more-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #666;
+    cursor: pointer;
+    margin: 8px;
+    padding: 6px 10px;
+    transition: background-color .3s ease;
+  }
+  
+  .show-more-btn:hover {
+    background-color: #ccc;
+    color: #fff;
+  }
+/*   
+  .alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  } */

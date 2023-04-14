@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Demande;
+use App\Traits\UploadFile;
 use App\Models\DemandeImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DemandeController extends Controller
 {
+
+    use UploadFile;
+
     public function index()
     {
         return view('demande.index');
@@ -17,10 +21,10 @@ class DemandeController extends Controller
     {
         return view('demande.create');
     }
-
+    
     public function store(Request $request)
     {
-        // dd($request);
+        // dd($request->image_url);
         $DataDemande=$request->validate([
             'title'=>'required',
             'Ville_adresse'=>'required',
@@ -28,8 +32,8 @@ class DemandeController extends Controller
             'categorie'=>'required',
             'Type_Travail'=>'required',
             'Description'=>'required',
-            'image_url'=>'nullable|max:3076',
-            'image_url2'=>'nullable|max:3076',
+            'image_url'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:3048',
+            'image_url2'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:3048',
     ],[
             'title.required'=>'Le Nom de Demande sont obligatoire',
             'Ville_adresse'=>'La ville  doit pas vide ',
@@ -43,8 +47,9 @@ class DemandeController extends Controller
             'image_url2.image'=>"Doit être une image",
             'image_url2.mimes'=>'Doit être une image de type : jpeg,png',
             'image_url2.max'=>'La taille de image est plus grand ',
-    ]);
-            $id = 706682;
+        ]);
+        // dd($request->hasFile('image_url'));
+        $id = 1;
             // try {
                 $demande=Demande::create([
                 // 'user_id'=>Auth::user()->id,
@@ -56,16 +61,29 @@ class DemandeController extends Controller
                 'Type_Travail'=>$request->Type_Travail,
                 'info'=>$request->Description,
             ]);
-                $demande_id = Demande::latest()->first();
-                // dd($demande_id->id);
-                $DemandeImages=DemandeImage::create([
-                    'demande_id'=>$demande_id->id,
-                    'image_url'=>$request->image_url,
-                    'image_url2'=>$request->image_url2,
-            ]);
-            return redirect()->route('demandes.index')->with('Ajouter_Demande','Votre Demande'.$request->title.' a ete ajouté');
+
+            if ($request->hasFile('image_url') || $request->hasFile('image_url2')) {
+                    $Img1ex=$request->image_url;
+                    $Img2ex=$request->image_url2;
+                    $$Img1ex=$request->file('image_url')->getClientOriginalName();
+                    $$Img2ex=$request->file('image_url2')->getClientOriginalName();
+                    
+                    // dd($Img1ex,$Img2ex);
+                    // dd($$Img1ex,$$Img2ex);
+
+                    $demande_id = Demande::latest()->first();
+                    $image_url=$this->UploadFile($Img1ex,$$Img1ex,'images/Demandes');
+                    $image_url2=$this->UploadFile($Img2ex,$$Img2ex,'images/Demandes');
+
+                    $DemandeImages=DemandeImage::create([
+                        'demande_id'=>$demande_id->id,
+                        'image_url'=>$image_url,
+                        'image_url2'=>$image_url2,
+                ]);
+            }
+            return redirect()->route('demandes.create')->with('Ajouter_Demande','Votre Demande'.$request->title.' a ete ajouté');
             // } catch (\Throwable $th) {
-                // return session()->flash('Error_create-demande','Desole il  y a un problem dons votre demande Faire autre Demande');
+                // return redirect()->route('demandes.create')->with('Error_create-demande','Desole il  y a un problem dons votre demande Faire autre Demande');
             // }
             
             // if ($request->hasFile('image_url')) {
