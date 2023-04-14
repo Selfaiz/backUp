@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class article-categorie extends Component
+class article_categorie extends Component
 {
     /**
      * Create a new component instance.

@@ -21,7 +21,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Poppins', sans-serif;
+  --body-font: 'Poppins', sans-serif !important;
   --biggest-font-size: 2.25rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  font-family: var(--body-font);
+  font-family: var(--body-font) !important;
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color) !important;
@@ -92,7 +92,7 @@ img {
 
 input,
 button {
-  font-family: var(--body-font);
+  font-family: var(--body-font) !important;
   outline: none;
   border: none;
 }
@@ -239,7 +239,7 @@ border: 3px solid var(--border-color);
   font-size: 1.33rem;
   cursor: pointer;
   color: var(--first-color);
-  font-size: 1.28rem;
+  /* font-size: 1.28rem; */
   /* color: #fff; */
   /* color: #feff0f; */
   cursor: pointer;
@@ -256,7 +256,7 @@ border: 3px solid var(--border-color);
 }
 
 .nav__logo{
-  color: #fff;
+  color: #3858d6;
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
@@ -787,9 +787,9 @@ row-gap: 2.5rem;
 }
 
 .footer__logo{
-  color: var(--first-color);
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-semi-bold);
+  color: var(--first-color) !important;
+  font-size: var(--h3-font-size) !important;
+  font-weight: var(--font-semi-bold) !important;
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
@@ -799,8 +799,9 @@ row-gap: 2.5rem;
   font-size: 1.25rem;
 }
 .footer__description , .footer__link{
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
+  font-size: var(--small-font-size) !important;
+  font-weight: var(--font-medium) !important;
+  color: #555;
 
 }
 .footer__content , .footer__links{
@@ -813,20 +814,20 @@ row-gap: 2.5rem;
 }
 
 .footer__title{
-  font-size: var(--h3-font-size);
+  font-size: var(--h3-font-size) !important;
   margin-bottom: 1rem;
-
+  color: #555;
 }
 .footer__links{
   row-gap: .5rem;
 }
 .footer__link {
-  color: var(--text-color);
+  color: var(--text-color) !important;
   transition: .3s;
 
 }
 .footer__link:hover{
-  color: var(--title-color);
+  color: burlywood !important;
 
 }
 .footer__social{
@@ -835,11 +836,12 @@ row-gap: 2.5rem;
 }
 .footer__social-link{
   font-size: 1.25rem;
-  color: var(--text-color);
+  color: #555 !important;
   transition: .3s;
+  
 }
 .footer__social-link:hover{
-  color: var(--title-color);
+  color: burlywood !important;
 }
 .footer__info ,
 .footer__privacy{
@@ -856,7 +858,7 @@ row-gap: 2.5rem;
 .footer__privacy a{
   font-size: var(--smaller-font-size);
   font-weight: var(--font-medium);
-  color: var(--text-color);
+  color: #555;
 }
 .footer__privacy{
   justify-content: center;
@@ -868,13 +870,16 @@ row-gap: 2.5rem;
   border-radius: .5rem;
   background-color: hsl(228 , 8% , 76% );
 }
+::-webkit-scrollbar-track {
+  background: #f1f1f1
+}
 ::-webkit-scrollbar-thumb{
-  background-color: hsl(228 , 8% , 64%);
+  background-color:#4350ff;
   border-radius: .5rem;
 
 }
 ::-webkit-scrollbar-thumb:hover{
-  background-color: hsl(228 ,8% , 54%);
+  background-color: #555;
 }
 
 /*=============== SCROLL UP ===============*/

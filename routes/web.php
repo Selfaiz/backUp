@@ -39,6 +39,7 @@ Route::prefix('categories')->controller(CategorieController::class)->group(funct
 // });
   
 Route::resource('demandes', DemandeController::class);
+Route::post('upload',[DemandeController::class,'uploadImage'])->name('uploadImage');
   /*
 |----------------|
 | Ouvier Routes  |

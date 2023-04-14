@@ -4,14 +4,14 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 @endsection
 @section('content')
-<section class="home section" id="home">
+<section class="popular section" id="home">
     <div class="conatiner">
         <div class="container">
             <div class="popular__titles">
                 <span class="section__subtitle">
                     Our Categories
                 </span>
-                <h2 class="section__title white">
+                <h2 class="section__title">
                     All Categories Metier
                 </h2> 
         </div>

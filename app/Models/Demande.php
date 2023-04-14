@@ -15,10 +15,14 @@ class Demande extends Model
 
     protected $fillable = [
         'title',
+        'Ville_adresse',
         'address',
-        'is_done',
-        'info',
         'categorie_id',
+        'Type_Travail',
+        'info',
+        'image_url',
+        'image_url2',
+        'is_done',
         'user_id',
     ];
 

@@ -14,6 +14,8 @@ class DemandeImage extends Model
     protected $fillable = [
         'user_id',
         'image_url',
+        'image_url2',
+        'demande_id',
     ];
 
     public function demande(): BelongsTo
