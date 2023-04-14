@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('prenom',30);
             $table->string('address',100);
             $table->string('ville',30);
+            $table->date('naissance',30);
             $table->string('cin');
             $table->string('bio')->nullable();
             $table->string('profile_url')->nullable();

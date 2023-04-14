@@ -86,5 +86,7 @@ Route::controller(OuvrierController::class)->group(function () {
   Route::get('/{ouvrier}', 'profile')->name('ouvrier.profile');  
   Route::get('/categorie/{ouvrier}', 'index')->name('categorie.ouvrier');  
   Route::get('/{ouvrier}/edit', 'edit')->name('ouvrier.edit');  
+
+  Route::post('/ouvrier', 'store')->name('ouvrier.store');  
 });
 

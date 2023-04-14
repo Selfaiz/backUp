@@ -18,7 +18,11 @@
                 <input type="file" hidden name="profile_image" />
             </div>
         </div>
-        <form action="#">
+        @if ($errors->any())
+            <span style="color: red">{{ $errors->first() }}</span>
+        @endif
+        <form action="{{ route('ouvrier.store') }}" method="POST">
+            @csrf
             <!-- ================First Form================ -->
             <div class="form first">
                 <div class="details personal">
@@ -26,18 +30,18 @@
                     <div class="fields">
 
                         <div class="input-field">
-                            <label for="">First Name</label>
-                            <input type="text" value="yassine" placeholder="Enter first name" required />
+                            <label for="">Nom</label>
+                            <input type="text" name="nom" value="{{ old('nom') }}" class="@error('nom') required @enderror" placeholder="Enter first name" required />
                         </div>
 
                         <div class="input-field">
-                            <label for="">Last Name</label>
-                            <input type="text" value="adiouani" placeholder="Enter last name" required />
+                            <label for="">Prenom</label>
+                            <input type="text" name="prenom" value="{{old('prenom')}}" class="@error('prenom') required @enderror" placeholder="Enter last name" required />
                         </div>
 
                         <div class="input-field">
-                            <label for="">Gender</label>
-                            <select>
+                            <label for="">Sexe</label>
+                            <select name="sexe">
                                 <option value="Male">Male</option>
                                 <option value="Famele">Famele</option>
                                 <option value="Other">Other</option>
@@ -46,17 +50,17 @@
 
                         <div class="input-field">
                             <label for="">Email</label>
-                            <input type="email" value="yassine@yassine.yassine" placeholder="Enter your email" required />
+                            <input name="email" type="email" value="{{old('email')}}" class="@error('email') required @enderror" placeholder="Enter your email" required />
                         </div>
 
                         <div class="input-field">
                             <label for="">Password</label>
-                            <input type="password" value="yassine" placeholder="Enter new password" required />
+                            <input name="password" type="password" class="@error('password') required @enderror" placeholder="Enter new password" required />
                         </div>
 
                         <div class="input-field">
-                            <label for="">Confirme password</label>
-                            <input type="password" value="yassine" placeholder="Confirme your password" required />
+                            <label for="">confirmation password</label>
+                            <input name="password_confirmation" class="@error('password') required @enderror" type="password" placeholder="Confirme your password" required />
                         </div>
 
                     </div>
@@ -67,35 +71,33 @@
                     <div class="fields">
 
                         <div class="input-field">
-                            <label for="">City</label>
-                            <select>
+                            <label for="">ville</label>
+                            <select class="@error('ville') required @enderror" name="ville">
                                 <option hidden>Select city</option>
-                                <option value="">Rabat</option>
-                                <option value="">Casa</option>
-                                <option value="">Marakech</option>
-                                <option value="">Sale</option>
+                                @foreach ($cities as $city)
+                                    <option {{ $city == old('ville')? 'selected' : '' }} value="{{ $city }}"> {{ $city }} </option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label for="">Address</label>
-                            <input type="text" value="yassine444 yassine" placeholder="Enter your CIN" required />
+                            <input name="address" type="text" value="{{old('address')}}" class="@error('address') required @enderror" placeholder="Enter your CIN" required />
                         </div>
 
                         <div class="input-field">
-                            <label for="">Birth Date</label>
-                            <input type="date" placeholder="Enter your Birth date" required />
+                            <label for="">Date de Naissance</label>
+                            <input name="naissance" type="date" value="{{old('date') ? date('Y-m-d', strtotime(old('date'))) : ''}}" class="@error('naissance') required @enderror" placeholder="Enter your Birth date" required />
                         </div>
 
                         <div class="input-field">
-                            <label for="">Phone</label>
-                            <input type="text" value="269354855" placeholder="Enter your number" required />
+                            <label for="">Telephone</label>
+                            <input name="phone" type="text" value="{{ old('phone') }}" class="@error('phone') required @enderror" placeholder="Enter your number" required />
                         </div>
-
                     </div>
 
-                    <button class="nextBtn">
-                        <span class="btnText">Next</span>
+                    <button type="button" class="nextBtn">
+                        <span class="btnText">Suivant</span>
                         <i class="uil uil-navigator"></i>
                     </button>
                 </div>
@@ -107,24 +109,23 @@
                     <div class="fields">
 
                         <div class="input-field">
-                            <label for="">CIN</label>
-                            <input type="text" placeholder="Enter your CIN">
+                            <label for="cin">CIN</label>
+                            <input id="cin" name="cin" value="{{ old('cin') }}" type="text" class="@error('cin') required @enderror" placeholder="Enter your CIN">
                         </div>
 
                         <div class="input-field">
-                            <label for="">Categorie</label>
-                            <select>
+                            <label for="categorie_id">Categorie</label>
+                            <select id="categorie_id" name="categorie_id" class="@error('categorie_id') required @enderror" name="categorie_id ">
                                 <option hidden>Select categorie</option>
-                                <option>gbas</option>
-                                <option>5raz</option>
-                                <option>bnay</option>
-                                <option>maalam</option>
+                                @foreach ($categories as $categorie)
+                                    <option {{ old('categorie_id') == $categorie->id ? 'selected' : '' }} value="{{ $categorie->id }}" > {{ $categorie->nom_categorie }} </option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="input-field">
-                            <label for="">Experience</label>
-                            <select>
+                            <label for="experience">Experience</label>
+                            <select id="experience" name="experience" class="@error('experience') required @enderror">
                                 <option hidden>Select experience</option>
                                 <option>1 ans</option>
                                 <option>3 ans</option>
@@ -133,9 +134,9 @@
                             </select>
                         </div>
 
-                        <div class="input-field textarea">
+                        <div class="input-field textarea @error('bio') required @enderror   ">
                             <label for="">Bio</label>
-                            <textarea cols="30" rows="10" placeholder="Enter your description"></textarea>
+                            <textarea cols="30" rows="10" placeholder="Enter your description" name="bio">{{old('bio')}}</textarea>
                         </div>
 
                     </div>
@@ -180,7 +181,7 @@
                     </div>
                     
                     <div class="accept">
-                        <input type="checkbox" id="accept" />
+                        <input name="check" type="checkbox" id="accept" />
                         <label for="accept" class="terms">By checking the checkbox below, you agree to <span>our Terms of Use</span>, <span>Privacy Statement</span>, and that you are over 18.</label>
                     </div>
 

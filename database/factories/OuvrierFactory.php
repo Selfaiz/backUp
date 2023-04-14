@@ -27,6 +27,7 @@ class ouvrierFactory extends Factory
             'bio' => fake()->sentence($nbWords = 6, $variableNbWords = true) ,
             'phone' => fake()->e164PhoneNumber(),
             'experience' => fake()->randomElement(['good','bad','normal']),
+            'naissance' => '2002/08/08',
             'active' =>1,
             'password' =>'3rtweter4',
             'categorie_id' =>1,
