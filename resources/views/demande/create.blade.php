@@ -26,17 +26,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
         @endif
-        {{-- Alert D'ajoute --}}
-        @if (session('Ajouter_Demande'))
-        <div class="alert alert-sucess alert-dismissible fade show   card" role="alert">
-            <ul>
-                <li>{{sesion('Ajouter_Demande')}}</li>
-            </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
-
-        {{-- Alert D'ajoute --}}
+        {{-- Alert D'error --}}
         @if (session('Error_create-demande'))
         <div class="alert alert-warning alert-dismissible fade show   card" role="alert">
             <ul>

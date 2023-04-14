@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Demande;
+use App\Models\Categorie;
 use App\Traits\UploadFile;
 use App\Models\DemandeImage;
 use Illuminate\Http\Request;
@@ -15,7 +16,11 @@ class DemandeController extends Controller
 
     public function index()
     {
-        return view('demande.index');
+        $demandes=Demande::all();
+        // $demandeImages=DemandeImage::all();
+        $CategoriesImages=Categorie::all();
+        // dd($demandes,$CategoriesImage);
+        return view('demande.index',compact('demandes','CategoriesImages'));
     }
     public function create()
     {
@@ -24,7 +29,6 @@ class DemandeController extends Controller
     
     public function store(Request $request)
     {
-        // dd($request->image_url);
         $DataDemande=$request->validate([
             'title'=>'required',
             'Ville_adresse'=>'required',
@@ -48,9 +52,8 @@ class DemandeController extends Controller
             'image_url2.mimes'=>'Doit être une image de type : jpeg,png',
             'image_url2.max'=>'La taille de image est plus grand ',
         ]);
-        // dd($request->hasFile('image_url'));
-        $id = 1;
-            // try {
+            $id = 1;
+            try {
                 $demande=Demande::create([
                 // 'user_id'=>Auth::user()->id,
                 'user_id'=>$id,
@@ -68,9 +71,6 @@ class DemandeController extends Controller
                     $$Img1ex=$request->file('image_url')->getClientOriginalName();
                     $$Img2ex=$request->file('image_url2')->getClientOriginalName();
                     
-                    // dd($Img1ex,$Img2ex);
-                    // dd($$Img1ex,$$Img2ex);
-
                     $demande_id = Demande::latest()->first();
                     $image_url=$this->UploadFile($Img1ex,$$Img1ex,'images/Demandes');
                     $image_url2=$this->UploadFile($Img2ex,$$Img2ex,'images/Demandes');
@@ -81,25 +81,10 @@ class DemandeController extends Controller
                         'image_url2'=>$image_url2,
                 ]);
             }
-            return redirect()->route('demandes.create')->with('Ajouter_Demande','Votre Demande'.$request->title.' a ete ajouté');
-            // } catch (\Throwable $th) {
-                // return redirect()->route('demandes.create')->with('Error_create-demande','Desole il  y a un problem dons votre demande Faire autre Demande');
-            // }
-            
-            // if ($request->hasFile('image_url')) {
-            //     // foreach ($request->file('images') as $image) {
-            //     // $imageName = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
-            //     // $image->storeAs('public/images', $imageName);
-
-            //     // $demandeImage = new DemandeImage;
-            //     // $demandeImage->path = $imageName;
-            //     // $demande->images()->save($demandeImage);
-            //     dd('yes');
-            //  }
-            // }
-        // }catch (\Exception $th) {
-        //     return session()->flash('Error_create-demande','Desole il  y a un problem dons votre demande Faire autre Demande');
-        // }
+            return redirect()->route('demandes.index')->with('Ajouter_Demande','Votre Demande'.$request->title.' a ete ajouté');
+            } catch (\Throwable $th) {
+                return redirect()->route('demandes.create')->with('Error_create-demande','Desole il  y a un problem dons votre demande Faire autre Demande');
+            }
 
     }
 
