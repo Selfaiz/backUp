@@ -206,10 +206,6 @@
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
     <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
-
-    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/sweetalert/sweetalerts.min.js')}}"></script> --}}
-
     <script src="{{asset('assets/js/scriptDash.js')}}"></script>
     <script>
 

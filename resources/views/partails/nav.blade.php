@@ -4,7 +4,7 @@
             Maalam Lik <!-- Logo here -->
         </a>
 
-        {{-- @isset($aa) --}}
+        @isset($aa)
         <div class="nav__menu"  id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item">
@@ -47,7 +47,7 @@
         </div>
         <!-- dark mode  -->
         <i class="bx bx-moon dark-mode" id="switch-button"></i>
-        {{-- @endisset --}}
+        @endisset
         <a href="{{ route('login.index') }}" class="button nav__button">
             Login
         </a>
