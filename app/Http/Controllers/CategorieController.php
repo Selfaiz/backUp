@@ -13,11 +13,13 @@ class CategorieController extends Controller
         $categories=Categorie::all(); 
         return view('categorie.index',compact('categories'));
     }
-
-    public function ouvrier($categorie)
-    {
-        $categorie=Categorie::findOrFail($categorie)->ouvriers;
-        
-        return view('ouvrier.index',compact('categorie'));;
+    public function search(Request $request)
+    { 
+        $categories=Categorie::where('nom_categorie', $request->search)->get()->first() ;  
+        if($categories){
+            $ouvries=$categories->ouvriers;
+            return redirect()->route('categorie.ouvrier',$categories->id) ;
+        }
+        return redirect('/');
     }
 }

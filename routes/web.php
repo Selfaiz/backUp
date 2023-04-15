@@ -1,5 +1,6 @@
 <?php
- 
+
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DemandeController;
@@ -23,7 +24,7 @@ Route::get('/', [HomeController::class,'index']);
  
 Route::prefix('categories')->controller(CategorieController::class)->group(function () {
     Route::get('/', 'index')->name('categories'); 
-    Route::get('/{Categorie}', 'ouvrier')->name('categories.ouvrier'); 
+    Route::post('/search', 'search')->name('categories.search'); 
 });
 
 /*
@@ -53,8 +54,11 @@ Route::post('upload',[DemandeController::class,'uploadImage'])->name('uploadImag
 | Auth Routes  |
 |--------------|
 */
- 
-//code..
+
+Route::controller(AuthController::class)->group(function () {
+  Route::get('/login', 'index')->name('login.index');  
+});
+
 
 
 /*
@@ -81,5 +85,18 @@ Route::post('upload',[DemandeController::class,'uploadImage'])->name('uploadImag
 
 //code..
 
+  /*
+|----------------|
+| Ouvier Routes  |
+|----------------| 
+*/
 
+Route::controller(OuvrierController::class)->group(function () {
+  Route::get('/register', 'register')->name('ouvrier.register');  
+  Route::get('/{ouvrier}', 'profile')->name('ouvrier.profile');  
+  Route::get('/categorie/{ouvrier}', 'index')->name('categorie.ouvrier');  
+  Route::get('/{ouvrier}/edit', 'edit')->name('ouvrier.edit');  
+
+  Route::post('/ouvrier', 'store')->name('ouvrier.store');  
+});
 
